@@ -38,7 +38,7 @@ function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     // Create the DIV to hold the control and call the makeInfoBox() constructor
     // passing in this DIV.
-    zoom: 50,
+    zoom: 100,
     center: pittsburgh,
     disableDoubleClickZoom: true,
   });
@@ -75,7 +75,11 @@ function initMap() {
     //addToTable(labelContent);
   });
   //delete marker
-  marker.addListener("dblclick", () => {
+  marker.addListener(marker, "dblclick", function(event) {
+    console.log("dblclick detected");
+    deleteMarker();
+  });
+function deleteMarker(){
     marker.setMap(null);
 });
 function addMarker(location, category, map, note) {
