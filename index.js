@@ -41,7 +41,7 @@ function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     // Create the DIV to hold the control and call the makeInfoBox() constructor
     // passing in this DIV.
-    zoom: 4,
+    zoom: 100,
     center: pittsburgh,
     disableDoubleClickZoom: true,
   });
