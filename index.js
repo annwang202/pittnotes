@@ -30,9 +30,6 @@ function initMap() {
   google.maps.event.addListener(map, 'dblclick', function(event) {
     var oldVal = 'something';
     var category = prompt("Please enter the category of your event (event\education\food\other):", oldVal);
-    while(category===""){
-      category = prompt("Input Required. Please enter the category of your event (event\education\food\other):, oldVal");
-    }
     var eventName = prompt("Please add the name of your event:");
     var timeAndPlace = prompt("Please add the time and location of your event:")
     var eventNote = prompt("Add a description of your event:")
