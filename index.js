@@ -6,14 +6,15 @@ function initMap() {
   var map = new google.maps.Map(document.getElementById("map"), {
     // Create the DIV to hold the control and call the makeInfoBox() constructor
     // passing in this DIV.
-    var infoBoxDiv = document.createElement('div');
-    var infoBox = new makeInfoBox(infoBoxDiv, map);
-    infoBoxDiv.index = 1;
-    map.controls[google.maps.ControlPosition.TOP_CENTER].push(infoBoxDiv);
     zoom: 4,
     center: pittsburgh,
     disableDoubleClickZoom: true,
   });
+  var infoBoxDiv = document.createElement('div');
+  var infoBox = new makeInfoBox(infoBoxDiv, map);
+    infoBoxDiv.index = 1;
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(infoBoxDiv);
+  
   // The marker, positioned at Pittsburgh
   const marker = new google.maps.Marker({
     position: pittsburgh,
