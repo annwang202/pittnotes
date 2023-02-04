@@ -1,3 +1,6 @@
+const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let labelIndex = 0;
+
 // Initialize and add the map
 function initMap() {
   // The location of Pittsburgh
@@ -10,6 +13,8 @@ function initMap() {
     center: pittsburgh,
     disableDoubleClickZoom: true,
   });
+  
+  //info box at top
   var infoBoxDiv = document.createElement('div');
   var infoBox = new makeInfoBox(infoBoxDiv, map);
     infoBoxDiv.index = 1;
@@ -18,6 +23,23 @@ function initMap() {
   // The marker, positioned at Pittsburgh
   const marker = new google.maps.Marker({
     position: pittsburgh,
+    map: map,
+  });
+    
+// This event listener calls addMarker() when the map is clicked.
+  google.maps.event.addListener(map, "click", (event) => {
+    addMarker(event.latLng, map);
+  });
+  
+}
+
+// Adds a marker to the map.
+function addMarker(location, map) {
+  // Add the marker at the clicked location, and add the next-available label
+  // from the array of alphabetical characters.
+  new google.maps.Marker({
+    position: location,
+    label: labels[labelIndex++ % labels.length],
     map: map,
   });
 }
