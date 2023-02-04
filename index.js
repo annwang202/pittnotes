@@ -81,7 +81,7 @@ function initMap() {
   });
 function deleteMarker(){
     marker.setMap(null);
-});
+};
 function addMarker(location, category, map, note) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
