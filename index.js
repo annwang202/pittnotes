@@ -4,7 +4,7 @@ let labelIndex = 0;
 // Initialize and add the map
 function initMap() {
   // The location of Pittsburgh
-  const pittsburgh = { lat: 40.4406, lng: 79.9959 };
+  const pittsburgh = { lat: 40.4406, lng: -79.9959 };
   // The map, centered at Pittsburgh
   var map = new google.maps.Map(document.getElementById("map"), {
     // Create the DIV to hold the control and call the makeInfoBox() constructor
