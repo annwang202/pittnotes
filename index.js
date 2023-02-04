@@ -6,7 +6,7 @@ var markers = [];
 
 window.addEventListener("load", function (evt) {
   //get number of markers
-  if (!JSON.parse(localStorage.getItem("labelIndex"))) {
+  if (localStorage.getItem("labelIndex") == null) {
     localStorage.setItem("labelIndex", JSON.stringify({number: Number(0)}));
   } else {
     numMarkers = Number(JSON.parse(localStorage.getItem("labelIndex")));
