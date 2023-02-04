@@ -72,6 +72,7 @@ function initMap() {
     var newMarker = addMarker(event.latLng, category, map, labelContent);
     markers.push(newMarker);
     numMarkers++;
+    console.log(markers);
     var tableInf = {Category: category, Event: eventName, Date: time, Where: place, About: eventNote};
     addToSection(category,labelContent);
     //addToTable(labelContent);
