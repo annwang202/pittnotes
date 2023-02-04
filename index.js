@@ -17,7 +17,7 @@ window.addEventListener("load", function (evt) {
     markers = [];
     localStorage.setItem("markers", JSON.stringify(markers));
   } else {
-    markers = JSON.parse(localStorage.getItem("labelIndex"));
+    markers = JSON.parse(localStorage.getItem("markers"));
   }
 
 
