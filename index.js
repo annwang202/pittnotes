@@ -3,7 +3,13 @@ function initMap() {
   // The location of Pittsburgh
   const pittsburgh = { lat: 40.4406, lng: 79.9959 };
   // The map, centered at Pittsburgh
-  const map = new google.maps.Map(document.getElementById("map"), {
+  var map = new google.maps.Map(document.getElementById("map"), {
+    // Create the DIV to hold the control and call the makeInfoBox() constructor
+    // passing in this DIV.
+    var infoBoxDiv = document.createElement('div');
+    var infoBox = new makeInfoBox(infoBoxDiv, map);
+    infoBoxDiv.index = 1;
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(infoBoxDiv);
     zoom: 4,
     center: pittsburgh,
   });
