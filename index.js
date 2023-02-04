@@ -92,20 +92,20 @@ function addMarker(location, map) {
     position: location,
     label: labels[labelIndex++ % labels.length],
     map: map,
-    attachNote(marker, note);
+    //attachNote(marker, note);
     //title: "Note",
    // optimized: false,
   });
   
-  function attachNote(marker, note){
-    var infowindow = new google.maps.InfoWindow({
-        content: note
-   });
+//   function attachNote(marker, note){
+//     var infowindow = new google.maps.InfoWindow({
+//         content: note
+//    });
 
-   marker.addListener('click', function() {
-       infowindow.open(marker.get('map'), marker);
-   });
-  }
+//    marker.addListener('click', function() {
+//        infowindow.open(marker.get('map'), marker);
+//    });
+//   }
 
   marker.addListener("click", () => {
     infoWindow.close();
