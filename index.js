@@ -9,7 +9,8 @@ window.addEventListener("load", function (evt) {
   if (localStorage.getItem("labelIndex") == null) {
     localStorage.setItem("labelIndex", JSON.stringify({number: Number(0)}));
   } else {
-    numMarkers = Number(JSON.parse(localStorage.getItem("labelIndex")));
+    numMarkers = localStorage.getItem("labelIndex");
+    console.log(numMarkers);
   }
 
   //get markers
