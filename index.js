@@ -54,9 +54,6 @@ function initMap() {
     position: pittsburgh,
     map: map,
   });
-   document
-   .getElementById("delete-markers")
-    .addEventListener("click", deleteMarkers);
   
   if (markers.length > 0){
     console.log(markers.length);
@@ -89,15 +86,15 @@ function addMarker(location, category, map, note) {
   markers.push(marker);
   numMarkers++;
   
-  function setMapArr(map) {
-  for (let i = 0; i < markers.length; i++) {
-    markers[i].setMap(map);
-  }
-}
-  function deleteMarkers() {
-  setMapArr(null);
-  markers = [];
-}
+//   function setMapArr(map) {
+//   for (let i = 0; i < markers.length; i++) {
+//     markers[i].setMap(map);
+//   }
+// }
+//   function deleteMarkers() {
+//   setMapArr(null);
+//   markers = [];
+// }
 
 /*
    marker.addListener('click', function() {
