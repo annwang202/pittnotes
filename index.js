@@ -54,7 +54,9 @@ function initMap() {
     map: map,
   });
   
-  markers.forEach(mark => addMarker(mark.position,mark.label,map,mark.title));
+  if (markers.length > 0){
+    markers.forEach(mark => addMarker(mark.position,mark.label,map,mark.title));
+  }
     
 // This event listener calls addMarker() when the map is clicked and prompts user to add note.
   google.maps.event.addListener(map, 'dblclick', function(event) {
