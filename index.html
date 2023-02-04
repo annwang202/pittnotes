@@ -59,34 +59,47 @@
 
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script type="module" src="./index.js"></script>
+  </head>
+  <body>
+    <h3>PittPreserves</h3>
+    <!--The div element for the map -->
     <div id="map"></div>
+    <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises
+      with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+      -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuJbZu3Qdj1NVCwYepwzpD32bMAaqt7uY&callback=initMap&v=weekly"
       defer
     ></script>
+  </body>
 </header>
 <p>Click the button to add a new row at the first position of the table and then add cells and content.</p>
 
-<table id="myTable">
-  <tr>
-    <td>Row1 cell1</td>
-    <td>Row1 cell2</td>
-  </tr>
-  <tr>
-    <td>Row2 cell1</td>
-    <td>Row2 cell2</td>
-  </tr>
-  <tr>
-    <td>Row3 cell1</td>
-    <td>Row3 cell2</td>
-  </tr>
-</table>
-<br>
+<div class="table">
+  <table id="myTable">
+    <tr>
+      <td>Row1 cell1</td>
+      <td>Row1 cell2</td>
+    </tr>
+    <tr>
+      <td>Row2 cell1</td>
+      <td>Row2 cell2</td>
+    </tr>
+    <tr>
+      <td>Row3 cell1</td>
+      <td>Row3 cell2</td>
+    </tr>
+  </table>
+  <br>
 
 <input type='text' id='cellOne' />
 <input type='text' id='cellTwo' />
 
 <button onclick="myFunction()">Try it</button> 
+</div>
 
 <!-- Add a background color and large text to the whole page -->
 <div class="w3-sand w3-grayscale w3-large">
