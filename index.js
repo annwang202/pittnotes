@@ -62,7 +62,7 @@ function initMap() {
     
 // This event listener calls addMarker() when the map is clicked and prompts user to add note.
   google.maps.event.addListener(map, 'click', function(event) {
-    console.log("double click detected");
+    console.log("click detected");
     var category = prompt("Please enter the category of your event (entertainment/education/food/other):");
     var eventName = prompt("Please enter the name of your event:");
     var time = prompt("Please enter the date and time of your event:")
