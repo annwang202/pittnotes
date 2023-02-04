@@ -37,10 +37,18 @@ function initMap() {
 function addMarker(location, map) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
-  new google.maps.Marker({
+  const marker = new google.maps.Marker({
     position: location,
     label: labels[labelIndex++ % labels.length],
     map: map,
+    title: "Note",
+    optimized: false,
+  });
+
+  marker.addListener("click", () => {
+    infoWindow.close();
+    infoWindow.setContent(marker.getTitle());
+    infoWindow.open(marker.getMap(), marker);
   });
 }
 
