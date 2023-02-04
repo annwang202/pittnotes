@@ -1,13 +1,14 @@
 const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let labelIndex = 0;
 
-var numMarkers;
+var numMarkers = 0;
 var markers = [];
 
 window.addEventListener("load", function (evt) {
   //get number of markers
   if (localStorage.getItem("labelIndex") == null) {
-    localStorage.setItem("labelIndex", JSON.stringify({number: Number(0)}));
+    numMarkers = 0;
+    localStorage.setItem("labelIndex", numMarkers);
   } else {
     numMarkers = Number(JSON.parse(localStorage.getItem("labelIndex")));
   }
