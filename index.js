@@ -32,7 +32,6 @@ window.addEventListener('beforeunload', function (evt) {
 
 // Initialize and add the map
 function initMap() {
-  document
   // The location of Pittsburgh
   const pittsburgh = { lat: 40.4406, lng: -79.9959 };
   // The map, centered at Pittsburgh
@@ -72,6 +71,7 @@ function initMap() {
     addMarker(event.latLng, category, map, labelContent);
     //addToTable(labelContent);
   });
+  document
    .getElementById("delete-markers")
     .addEventListener("click", deleteMarkers);
 
