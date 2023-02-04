@@ -1,6 +1,34 @@
 const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let labelIndex = 0;
 
+var numMarkers;
+var markers;
+
+window.addEventListener("load", function (evt) {
+  //get number of markers
+  if (!JSON.parse(localStorage.getItem("labelIndex"))) {
+    localStorage.setItem("labelIndex", JSON.stringify({number: Number(0)}));
+  } else {
+    numMarkers = Number(JSON.parse(localStorage.getItem("labelIndex")));
+  }
+
+  //get markers
+  if (!JSON.parse(localStorage.getItem("markers"))) {
+    markers = [];
+    localStorage.setItem("markers", JSON.stringify(markers));
+  } else {
+    markers = JSON.parse(localStorage.getItem("labelIndex"));
+  }
+
+
+});
+
+window.addEventListener('beforeunload', function (evt) {
+  localStorage.setItem("labelIndex", numMarkers);
+  localStorage.setItem("markers", JSON.stringify(markers));
+});
+
+
 // Initialize and add the map
 function initMap() {
   // The location of Pittsburgh
@@ -49,6 +77,9 @@ function addMarker(location, category, map, note) {
     title: note,
     optimized: false,
   });
+  
+  markers.push(marker);
+  numMarkers++;
 
 /*
    marker.addListener('click', function() {
