@@ -54,6 +54,9 @@ function initMap() {
     position: pittsburgh,
     map: map,
   });
+   document
+   .getElementById("delete-markers")
+    .addEventListener("click", deleteMarkers);
   
   if (markers.length > 0){
     console.log(markers.length);
@@ -71,10 +74,6 @@ function initMap() {
     addMarker(event.latLng, category, map, labelContent);
     //addToTable(labelContent);
   });
-  document
-   .getElementById("delete-markers")
-    .addEventListener("click", deleteMarkers);
-
   // Adds a marker to the map.
 function addMarker(location, category, map, note) {
   // Add the marker at the clicked location, and add the next-available label
