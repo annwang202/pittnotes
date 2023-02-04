@@ -2,7 +2,7 @@ const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let labelIndex = 0;
 
 var numMarkers;
-var markers;
+var markers = [];
 
 window.addEventListener("load", function (evt) {
   //get number of markers
