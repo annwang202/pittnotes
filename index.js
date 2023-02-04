@@ -9,12 +9,11 @@ window.addEventListener("load", function (evt) {
   if (localStorage.getItem("labelIndex") == null) {
     localStorage.setItem("labelIndex", JSON.stringify({number: Number(0)}));
   } else {
-    numMarkers = localStorage.getItem("labelIndex");
-    console.log(numMarkers);
+    numMarkers = Number(JSON.parse(localStorage.getItem("labelIndex")));
   }
 
   //get markers
-  if (localStorage.getItem("markers") == null) {
+  if (!JSON.parse(localStorage.getItem("markers"))) {
     markers = [];
     localStorage.setItem("markers", JSON.stringify(markers));
   } else {
@@ -32,6 +31,9 @@ window.addEventListener('beforeunload', function (evt) {
 
 // Initialize and add the map
 function initMap() {
+  document
+    .getElementById("delete-markers")
+    .addEventListener("click", deleteMarkers);
   // The location of Pittsburgh
   const pittsburgh = { lat: 40.4406, lng: -79.9959 };
   // The map, centered at Pittsburgh
@@ -86,6 +88,16 @@ function addMarker(location, category, map, note) {
   
   markers.push(marker);
   numMarkers++;
+  
+  function setMap(map) {
+  for (let i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+}
+  function deleteMarkers() {
+  setMap(null);
+  markers = [];
+}
 
 /*
    marker.addListener('click', function() {
