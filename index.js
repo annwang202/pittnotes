@@ -1,15 +1,15 @@
 // Initialize and add the map
 function initMap() {
-  // The location of Uluru
-  const uluru = { lat: -25.344, lng: 131.031 };
-  // The map, centered at Uluru
+  // The location of Pittsburgh
+  const pittsburgh = { lat: 40.4406, lng: 79.9959 };
+  // The map, centered at Pittsburgh
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 4,
-    center: uluru,
+    center: pittsburgh,
   });
-  // The marker, positioned at Uluru
+  // The marker, positioned at Pittsburgh
   const marker = new google.maps.Marker({
-    position: uluru,
+    position: pittsburgh,
     map: map,
   });
 }
