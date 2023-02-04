@@ -90,13 +90,13 @@ function addMarker(location, category, map, note) {
   markers.push(marker);
   numMarkers++;
   
-  function setMap(map) {
+  function setMapArr(map) {
   for (let i = 0; i < markers.length; i++) {
     markers[i].setMap(map);
   }
 }
   function deleteMarkers() {
-  setMap(null);
+  setMapArr(null);
   markers = [];
 }
 
