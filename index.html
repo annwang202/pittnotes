@@ -37,9 +37,9 @@
 
 <div class="navbar">
   <a class="active" href="#home"><i class="fa fa-fw fa-home"></i> HOME</a> 
-  <a href="#event"><i class="fa fa-fw fa-search"></i> EVENTS</a> 
+  <a href="#event"><i class="fa fa-fw fa-search"></i> ENTERTAINMENT</a> 
   <a href="#school"><i class="fa fa-fw fa-envelope"></i> EDUCATIONAL</a> 
-  <a href="#restaurant"><i class="fa fa-fw fa-user"></i> FOOD</a>
+  <a href="#res"><i class="fa fa-fw fa-user"></i> FOOD</a>
   <a href="#other"><i class="fa fa-fw fa-user"></i> OTHER</a>
 </div>
 
@@ -53,8 +53,6 @@
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script type="module" src="./index.js"></script>
     <div id="map"></div>
-     <div id="floating-panel">
-     <input id="delete-markers" type="button" value="Delete Markers" /></div>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuJbZu3Qdj1NVCwYepwzpD32bMAaqt7uY&callback=initMap&v=weekly"
       defer
@@ -72,81 +70,62 @@
 <!-- Events Container -->
 <div class="w3-container" id="event">
   <div class="w3-content" style="max-width:700px">
-    <h3 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">EVENTS</span></h3>
-    <p></p>
+    <style>
+      h2.enter {
+      padding-top: 65px;
+    }
+    </style>
+    
+    <h2 class="enter"><center><span class="w3-tag w3-wide">ENTERTAINMENT</span></center></h2>
+    <p><center><font size = "4">Calling all Panthers! Gather 'round for some fun!</font></center</p>
     
   </div>
 </div>
 
-<!-- Study Group Container -->
+<!-- Study Container -->
 <div class="w3-container" id="school">
-  <div class="w3-content" style="max-width:1000px">
- 
-    <h3 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">EDUCATIONAL</span></h3>
-    <p><center><font size = "3">There's always something to learn! Tune into these sessions for educational ****</font></center></p>
-    <div class="w3-row w3-center w3-card w3-padding">
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Study');" id="myLink">
-        <div class="w3-col s6 tablink">Study Groups</div>
-      </a>
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Speaker');">
-        <div class="w3-col s6 tablink">Speaker Events</div>
-      </a>
-    </div>
-
-    <div id="Study" class="w3-container menu w3-padding-48 w3-card">
-      <h5>Bread Basket</h5>
-      <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
-    
-      <h5>Honey Almond Granola with Fruits</h5>
-      <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
-    
-      <h5>Belgian Waffle</h5>
-      <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
-    
-      <h5>Scrambled eggs</h5>
-      <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
-    
-      <h5>Blueberry Pancakes</h5>
-      <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
-    </div>
-
-    <div id="Speaker" class="w3-container menu w3-padding-48 w3-card">
-      <h5>Coffee</h5>
-      <p class="w3-text-grey">Regular coffee 2.50</p><br>
-    
-      <h5>Chocolato</h5>
-      <p class="w3-text-grey">Chocolate espresso with milk 4.50</p><br>
-    
-      <h5>Corretto</h5>
-      <p class="w3-text-grey">Whiskey and coffee 5.00</p><br>
-    
-      <h5>Iced tea</h5>
-      <p class="w3-text-grey">Hot tea, except not hot 3.00</p><br>
-    
-      <h5>Soda</h5>
-      <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
-    </div>  
+  <div class="w3-content" style="max-width:700px">
+    <style>
+      h2.edu {
+      padding-top: 65px;
+    }
+    </style>
+    <h2 class="edu"><center><span class="w3-tag w3-wide">EDUCATIONAL</span></center></h2>
+    <p><center><font size = "4">There's always more to learn! Tune into these sessions for educational development!</font></center></p>
   </div>
 </div>
 
-<!-- Food Recs -->
-<div class="w3-container" id="restaurant" style="padding-bottom:32px;">
+<!-- Food Container -->
+<div class="w3-container" id="res">
   <div class="w3-content" style="max-width:700px">
-    <h3 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">FOOD</span></h3>
-    <p><center>Find us at some address at some place.</center></p>
+    <style>
+      h2.food {
+      padding-top: 65px;
+    }
+    </style>
+    <h2 class="food"><center><span class="w3-tag w3-wide">FOOD</span></center></h2>
+    <p><center><font size = "4">Mm-mm-mm! Good food, good mood!</font></center></p>
     <center><img src="https://cdn.vox-cdn.com/thumbor/V_4J_sLr61EEvs6Zsq2RouMjiTw=/0x0:6000x4000/1375x1375/filters:focal(2520x1520:3480x2480):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/71262429/Le_Fantome.0.jpg" class="w3-image" style="width:75%"></center>
-    <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
-    
   </div>
 </div>
 
 <!-- Other Container -->
 <div class="w3-container" id="other">
   <div class="w3-content" style="max-width:700px">
-    <h3 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">EVENTS</span></h3>
-    <p></p>
-    <br>
-    <p><strong><center><font size = "5">Collaborators:</font></center></strong></p>
+    <style>
+      h2.oth {
+      padding-top: 65px;
+      }
+      p.collab {
+        padding-top: 50px;
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+      }
+    </style>
+    <h2 class="oth"><center><span class="w3-tag w3-wide">OTHER</span></center></h2>
+    <p class="sub" ><center><font size = "4">Find</font></center</p>
+    <p class="collab">Collaborators:</p>
     
   </div>
 </div>
