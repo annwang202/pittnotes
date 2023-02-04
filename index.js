@@ -55,6 +55,7 @@ function initMap() {
   });
   
   if (markers.length > 0){
+    console.log(markers.length);
     markers.forEach(mark => addMarker(mark.position,mark.label,map,mark.title));
   }
     
