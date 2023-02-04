@@ -64,14 +64,16 @@ function initMap() {
   google.maps.event.addListener(map, 'dblclick', function(event) {
     console.log("double click detected");
     var category = prompt("Please enter the category of your event (entertainment/education/food/other):");
-    var eventName = prompt("Please add the name of your event:");
-    var timeAndPlace = prompt("Please add the time and location of your event:")
-    var eventNote = prompt("Add a description of your event:")
-    var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nTime and Place: " + timeAndPlace + "\nDescription: " + eventNote;
+    var eventName = prompt("Please enter the name of your event:");
+    var time = prompt("Please enter the date and time of your event:")
+    var place = prompt("Please enter the location of your event: ")
+    var eventNote = prompt("Enter a description of your event:")
+    var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nDate: " + time + "\nPlace: " + place + "\nDescription: " + eventNote;
     addMarker(event.latLng, category, map, labelContent);
+    var tableInf = {Category: category, Event: eventName, Date: time, Where: place, About: eventNote};
+    addToSection(category,labelContent);
     //addToTable(labelContent);
   });
-  // Adds a marker to the map.
 function addMarker(location, category, map, note) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
@@ -110,7 +112,7 @@ function addMarker(location, category, map, note) {
 */
 }
 
-function addToTable(content) {
+function addToSection(section,content) {
   var table = document.getElementById("myTable");
   var row = table.insertRow(0);
   var cell1 = row.insertCell(0);
