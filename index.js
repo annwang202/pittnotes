@@ -27,41 +27,29 @@ function initMap() {
   });
     
 // This event listener calls addMarker() when the map is clicked and prompts user to add note.
-  google.maps.event.addListener(map, 'click', function(event) {
-    var note= prompt("Please add your note!");
-    addMarker(event.latLng, map, note);
-    var card = new map.card();
-            card.getBody().innerHTML = note;
-            var naparsovane = JSON.parse(localStorage.getItem('map'));
-            if(a == []){
-                var index = 0;
-            }
-            else{
-                var index = a.length;
-            }
+  google.maps.event.addListener(map, 'dblclick', function(event) {
+    var category = prompt("Please enter the category of your event (event\education\food\other):");
+    var eventName = prompt("Please add the name of your event:");
+    var timeAndPlace = prompt("Please add the time and location of your event:")
+    var eventNote = prompt("Add a description of your event:")
+    var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nTime and Place: " + timeAndPlace + "\nDescription: " + eventNote;
+    addMarker(event.latLng, category, map, labelContent);
+    addToTable(labelContent);
   });
-  
 
-}
-
-// Adds a marker to the map.
-function addMarker(location, map) {
+  // Adds a marker to the map.
+function addMarker(location, category, map, note) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
   var marker = new google.maps.Marker({
     position: location,
-    label: labels[labelIndex++ % labels.length],
+    label: category,
     map: map,
-    attachNote(marker, note);
-    //title: "Note",
-   // optimized: false,
+    title: note,
+    optimized: false,
   });
-  
-  function attachNote(marker, note){
-    var infowindow = new google.maps.InfoWindow({
-        content: note
-   });
 
+/*
    marker.addListener('click', function() {
        infowindow.open(marker.get('map'), marker);
    });
@@ -72,9 +60,21 @@ function addMarker(location, map) {
     infoWindow.setContent(marker.getTitle());
     infoWindow.open(marker.getMap(), marker);
   });
+*/
+}
+
+function addToTable(content) {
+  var table = document.getElementById("myTable");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  cell1.innerHTML = content;
+}
+  
+
 }
 
 window.initMap = initMap;
+
 
 function makeInfoBox(controlDiv, map) {
   // Set CSS for the control border.
