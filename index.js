@@ -66,7 +66,7 @@ function initMap() {
     var eventNote = prompt("Add a description of your event:")
     var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nTime and Place: " + timeAndPlace + "\nDescription: " + eventNote;
     addMarker(event.latLng, category, map, labelContent);
-    addToTable(labelContent);
+    //addToTable(labelContent);
   });
 
   // Adds a marker to the map.
