@@ -26,9 +26,19 @@ function initMap() {
     map: map,
   });
     
-// This event listener calls addMarker() when the map is clicked.
-  google.maps.event.addListener(map, "click", (event) => {
-    addMarker(event.latLng, map);
+// This event listener calls addMarker() when the map is clicked and prompts user to add note.
+  google.maps.event.addListener(map, 'click', function(event) {
+    var note= prompt("Please add your note!");
+    addMarker(event.latLng, map, note);
+    var card = new map.card();
+            card.getBody().innerHTML = note;
+            var naparsovane = JSON.parse(localStorage.getItem('map'));
+            if(a == []){
+                var index = 0;
+            }
+            else{
+                var index = a.length;
+            }
   });
   
 }
