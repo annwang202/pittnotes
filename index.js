@@ -53,6 +53,10 @@ function initMap() {
     position: pittsburgh,
     map: map,
   });
+  
+  for (let i = 0; i < markers.length; i++){
+    addMarker(markers[i].position,markers[i].label,map,markers[i].title);
+  }
     
 // This event listener calls addMarker() when the map is clicked and prompts user to add note.
   google.maps.event.addListener(map, 'dblclick', function(event) {
