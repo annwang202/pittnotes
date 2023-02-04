@@ -69,7 +69,9 @@ function initMap() {
     var place = prompt("Please enter the location of your event: ")
     var eventNote = prompt("Enter a description of your event:")
     var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nDate: " + time + "\nPlace: " + place + "\nDescription: " + eventNote;
-    addMarker(event.latLng, category, map, labelContent);
+    var newMarker = addMarker(event.latLng, category, map, labelContent);
+    markers.push(newMarker);
+    numMarkers++;
     var tableInf = {Category: category, Event: eventName, Date: time, Where: place, About: eventNote};
     addToSection(category,labelContent);
     //addToTable(labelContent);
@@ -86,9 +88,8 @@ function addMarker(location, category, map, note) {
     title: note,
     optimized: false,
   });
-  
-  markers.push(marker);
-  numMarkers++;
+   
+  return marker;
   
 //   function setMapArr(map) {
 //   for (let i = 0; i < markers.length; i++) {
