@@ -73,7 +73,7 @@ function initMap() {
 function addMarker(location, category, map, note) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
-  var marker = new google.maps.Marker({
+  const marker = new google.maps.Marker({
     position: location,
     label: category,
     map: map,
