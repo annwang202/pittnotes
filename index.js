@@ -71,10 +71,12 @@ function addMarker(location, category, map, note) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
   var marker = new google.maps.Marker({
+    let hoverBox = note.toUpperCase();
     position: location,
     label: category,
     map: map,
-    title: note,
+    let hoverBox = note.toUpperCase();
+    title: hoverBox,
     optimized: false,
   });
   
