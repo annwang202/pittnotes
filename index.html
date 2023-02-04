@@ -38,22 +38,17 @@
 <div class="navbar">
   <a class="active" href="#home"><i class="fa fa-fw fa-home"></i> HOME</a> 
   <a href="#event"><i class="fa fa-fw fa-search"></i> EVENTS</a> 
-  <a href="#study"><i class="fa fa-fw fa-envelope"></i> EDUCATIONAL</a> 
+  <a href="#school"><i class="fa fa-fw fa-envelope"></i> EDUCATIONAL</a> 
   <a href="#restaurant"><i class="fa fa-fw fa-user"></i> FOOD</a>
-  <a href="#where"><i class="fa fa-fw fa-user"></i> OTHER</a>
+  <a href="#other"><i class="fa fa-fw fa-user"></i> OTHER</a>
 </div>
 
 </body>
 </html>
-<br>
-<br>
-<br>
-<br>
 <!-- Header with image -->
 <div class="w3-container" id="home">
   <div class="w3-content" style="max-width:700px">
-    <h1 class="w3-center w3-padding-30" style="font-family:Lucida Bright"><span>PANTHER PROWL</span></h1>
-    <h4 style="font-family:Lucida Bright"><center>Fun when you need</center></h4>
+    <h1 class="w3-center w3-padding-64" style="font-family:Lucida Bright"><font size="8"><span>PANTHER PROWL</span></font></h1>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script type="module" src="./index.js"></script>
@@ -71,37 +66,32 @@
       </div>
   </div>
 </div>
+
 <!-- Events Container -->
 <div class="w3-container" id="event">
   <div class="w3-content" style="max-width:700px">
-    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ENTERTAINMENT</span></h5>
-    <p>The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <p>In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.</p>
-    <div class="w3-panel w3-leftbar w3-light-grey">
-      <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
-      <p>Chef, Coffeeist and Owner: Liam Brown</p>
-    </div>
-    <img src="https://www.w3schools.com/w3images/coffeeshop.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
-    <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>
+    <h3 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">EVENTS</span></h3>
+    <p></p>
+    
   </div>
 </div>
 
 <!-- Study Group Container -->
-<div class="w3-container" id="study">
-  <div class="w3-content" style="max-width:700px">
+<div class="w3-container" id="school">
+  <div class="w3-content" style="max-width:1000px">
  
-    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
-  
+    <h3 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">EDUCATIONAL</span></h3>
+    <p><center><font size = "3">There's always something to learn! Tune into these sessions for educational ****</font></center></p>
     <div class="w3-row w3-center w3-card w3-padding">
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
-        <div class="w3-col s6 tablink">Eat</div>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Study');" id="myLink">
+        <div class="w3-col s6 tablink">Study Groups</div>
       </a>
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
-        <div class="w3-col s6 tablink">Drink</div>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Speaker');">
+        <div class="w3-col s6 tablink">Speaker Events</div>
       </a>
     </div>
 
-    <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+    <div id="Study" class="w3-container menu w3-padding-48 w3-card">
       <h5>Bread Basket</h5>
       <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
     
@@ -118,7 +108,7 @@
       <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
     </div>
 
-    <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+    <div id="Speaker" class="w3-container menu w3-padding-48 w3-card">
       <h5>Coffee</h5>
       <p class="w3-text-grey">Regular coffee 2.50</p><br>
     
@@ -134,19 +124,28 @@
       <h5>Soda</h5>
       <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
     </div>  
-    <img src="https://www.w3schools.com/w3images/coffeehouse2.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
   </div>
 </div>
 
-<!-- Contact/Area Container -->
+<!-- Food Recs -->
 <div class="w3-container" id="restaurant" style="padding-bottom:32px;">
   <div class="w3-content" style="max-width:700px">
-    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">WHERE TO FIND US</span></h5>
-    <p>Find us at some address at some place.</p>
-    <img src="https://www.w3schools.com/w3images/map.jpg" class="w3-image" style="width:100%">
+    <h3 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">FOOD</span></h3>
+    <p><center>Find us at some address at some place.</center></p>
+    <center><img src="https://cdn.vox-cdn.com/thumbor/V_4J_sLr61EEvs6Zsq2RouMjiTw=/0x0:6000x4000/1375x1375/filters:focal(2520x1520:3480x2480):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/71262429/Le_Fantome.0.jpg" class="w3-image" style="width:75%"></center>
     <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
+    
+  </div>
+</div>
+
+<!-- Other Container -->
+<div class="w3-container" id="other">
+  <div class="w3-content" style="max-width:700px">
+    <h3 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">EVENTS</span></h3>
+    <p></p>
     <br>
-    <p><strong><center>Collaborators:</center></strong></p>
+    <p><strong><center><font size = "5">Collaborators:</font></center></strong></p>
+    
   </div>
 </div>
 
