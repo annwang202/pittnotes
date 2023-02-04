@@ -74,14 +74,8 @@ function initMap() {
     addToSection(category,labelContent);
     //addToTable(labelContent);
   });
-  //delete marker
-  marker.addListener(marker, "dblclick", function(event) {
-    console.log("dblclick detected");
-    deleteMarker();
-  });
-function deleteMarker(){
-    marker.setMap(null);
-};
+  
+  //add marker
 function addMarker(location, category, map, note) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
