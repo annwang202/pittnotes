@@ -12,6 +12,7 @@ function initMap() {
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(infoBoxDiv);
     zoom: 4,
     center: pittsburgh,
+    disableDoubleClickZoom: true,
   });
   // The marker, positioned at Pittsburgh
   const marker = new google.maps.Marker({
