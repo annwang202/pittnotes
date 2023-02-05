@@ -18,7 +18,7 @@ window.addEventListener("load", function (evt) {
     //markers = [];
     //localStorage.setItem("markers", JSON.stringify(markers));
     var newMarker = new google.maps.Marker({
-    position: { lat: 40.4406, lng: -79.9959 },
+    position: { lat: 40.4406, lng: -80.9959 },
     map: map,
   });
     
