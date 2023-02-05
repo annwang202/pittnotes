@@ -18,7 +18,7 @@ window.addEventListener("load", function (evt) {
     //markers = [];
     //localStorage.setItem("markers", JSON.stringify(markers));
     var newMarker = new google.maps.Marker({
-    position: pittsburgh,
+    position: { lat: 40.4406, lng: -79.9959 },
     map: map,
   });
     
