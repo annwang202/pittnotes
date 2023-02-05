@@ -6,11 +6,10 @@ var markers = [];
 
 window.addEventListener("load", function (evt) {
   //get number of markers
-  if (localStorage.getItem("labelIndex") == null) {
-    numMarkers = 0;
-    localStorage.setItem("labelIndex", numMarkers);
+  if (localStorage.getItem("numMarkers") == null) {
+    localStorage.setItem("numMarkers", 0);
   } else {
-    numMarkers = Number(JSON.parse(localStorage.getItem("labelIndex")));
+    numMarkers = Number(JSON.parse(localStorage.getItem("numMarkers")));
   }
 
   //get markers
@@ -21,14 +20,15 @@ window.addEventListener("load", function (evt) {
     markers = JSON.parse(localStorage.getItem("markers"));
   }
   
-  console.log(numMarkers);
+  console.log("numMarkers: " + numMarkers);
+  console.log("markers.length: " + markers.length);
   console.log(markers);
 
 
 });
 
 window.addEventListener('beforeunload', function (evt) {
-  localStorage.setItem("labelIndex", numMarkers);
+  localStorage.setItem("numMarkers", numMarkers);
   localStorage.setItem("markers", JSON.stringify(markers));
 });
 
