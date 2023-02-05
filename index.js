@@ -18,7 +18,10 @@ window.addEventListener("load", function (evt) {
     markers = [];
     localStorage.setItem("markers", JSON.stringify(markers));
   } else {
+    console.log("markers is not empty");
+    console.log(localStorage.getItem("markers"));
     markers = JSON.parse(localStorage.getItem("markers"));
+ 
   }
   
   console.log("numMarkers: " + numMarkers);
