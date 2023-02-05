@@ -48,7 +48,7 @@ function initMap() {
   
   document
     .getElementById("delete-markers")
-    .addEventListener("click", deleteMarkers);
+    .addEventListener("click", deleteMarkers());
   
   //info box at top
   var infoBoxDiv = document.createElement('div');
