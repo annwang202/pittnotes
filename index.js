@@ -95,6 +95,14 @@ function initMap() {
     var time = prompt("Please enter the date and time of your event:")
     var place = prompt("Please enter the location of your event: ")
     var eventNote = prompt("Enter a description of your event:")
+    if (category == "1")
+     category = "Entertainment";
+    if (category == "2")
+     category = "Educational";
+    if (category == "3")
+     category = "Food";
+    if (category == "4")
+     category = "Other";
     var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nDate: " + time + "\nPlace: " + place + "\nDescription: " + eventNote;
     var newMarker = addMarker(event.latLng, category, map, labelContent);
     numMarkers++;
@@ -167,6 +175,21 @@ function addToSection(section,content) {
   cell1.innerHTML = content;
 }
   
+  function addToTable(section, id){
+   if(section== "Entertainment"){
+     id = "fun";
+   }
+   if(section=="Educational"){
+     id= "stud";
+   }
+   if (section=="Food"){
+     id= "dinner";
+   }
+   if(section=="Other"){
+     id= "extra";
+   }
+   addToSection(id, marker.data);
+ }
 
 }
 
