@@ -174,9 +174,6 @@ function makeInfoBox(controlDiv, map) {
 }
 {
 
- let tableobjects = [
-  { name: "Monte Falco", height: 1658, place: "Parco Foreste Casentinesi",time: 6 },
-];
 
 
 function generateTableHead(table, data) {
