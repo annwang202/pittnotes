@@ -111,7 +111,7 @@ function initMap() {
     var tableInf = {Category: category, Event: eventName, Date: time, Where: place, About: eventNote};
     tableobjects.push(tableInf);
     addToSection(category,labelContent);
-    //addToTable(labelContent);
+    addToTable(labelContent);
   });
   
   //add marker
