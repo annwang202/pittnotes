@@ -181,8 +181,10 @@ function addMarker(location, category, map, note) {
    }
    addRow(id, marker.data);
  }*/
-  function addRow(cat, eName, time, loc, eNote) {
-    if(cat == "1"){
+  
+  
+  function addToRow(category, eventName, time, place, eventNote) {
+   if(cat == "1"){
      id = "fun";
    }
    if(cat == "2"){
@@ -194,51 +196,20 @@ function addMarker(location, category, map, note) {
    if(cat == "4"){
      id= "extra";
    }
-  // Get the table by its id
   var table = document.getElementById(id);
-
-   // Get the number of columns in the table
-   var numOfColumns = table.rows[0].cells.length;
-
-  // Create a new row
   var row = table.insertRow(-1);
-
-  // Create cells for each column
-  for (var i = 0; i < numOfColumns; i++) {
-  var cell = row.insertCell(i);
-  
-  if (i === 0) {
-    var inputField = document.createElement(category);
-    inputField.type = "text";
-    inputField.value = "New Input Value";
-    cell.appendChild(inputField);
-    }
-    if (i === 1) {
-    var inputField = document.createElement(eName);
-    inputField.type = "text";
-    inputField.value = "New Input Value";
-    cell.appendChild(inputField);
-    } 
-    if (i === 2) {
-    var inputField = document.createElement(time);
-    inputField.type = "text";
-    inputField.value = "New Input Value";
-    cell.appendChild(inputField);
-    }
-    if (i === 3) {
-    var inputField = document.createElement(loc);
-    inputField.type = "text";
-    inputField.value = "New Input Value";
-    cell.appendChild(inputField);
-    }
-    else {
-     var inputField = document.createElement(eNote);
-    inputField.type = "text";
-    inputField.value = "New Input Value";
-    cell.appendChild(inputField);
-    }
-  }
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  cell1.innerHTML = category;
+  cell2.innerHTML = eventName;
+  cell3.innerHTML = time;
+  cell4.innerHTML = place;
+  cell5.innerHTML = eventNote;
 }
+  
 
 }
 
