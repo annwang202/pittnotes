@@ -27,6 +27,7 @@ window.addEventListener("load", function (evt) {
   console.log("numMarkers: " + numMarkers);
   console.log("markers.length: " + markers.length);
   console.log(markers);
+  console.log(JSON.stringify([1,2,3]));
 
 
 });
