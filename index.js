@@ -73,6 +73,7 @@ function initMap() {
     markers.push(newMarker);
     numMarkers++;
     console.log(newMarker);
+    console.log(numMarkers);
     console.log(markers);
     var tableInf = {Category: category, Event: eventName, Date: time, Where: place, About: eventNote};
     addToSection(category,labelContent);
@@ -83,7 +84,7 @@ function initMap() {
 function addMarker(location, category, map, note) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
-  const marker = new google.maps.Marker({
+  var marker = new google.maps.Marker({
     position: location,
     label: category,
     map: map,
