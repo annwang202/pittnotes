@@ -95,14 +95,6 @@ function initMap() {
     var time = prompt("Please enter the date and time of your event:")
     var place = prompt("Please enter the location of your event: ")
     var eventNote = prompt("Enter a description of your event:")
-    if (category == "1")
-     category = "Entertainment";
-    if (category == "2")
-     category = "Educational";
-    if (category == "3")
-     category = "Food";
-    if (category == "4")
-     category = "Other";
     var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nDate: " + time + "\nPlace: " + place + "\nDescription: " + eventNote;
     var newMarker = addMarker(event.latLng, category, map, labelContent);
     numMarkers++;
@@ -110,8 +102,7 @@ function initMap() {
     console.log(markers);
     var tableInf = {Category: category, Event: eventName, Date: time, Where: place, About: eventNote};
     tableobjects.push(tableInf);
-    addToSection(category,labelContent);
-    addToTable(labelContent);
+    addToRow(category, eventName, time, place, eventNote);
   });
   
   //add marker
@@ -168,7 +159,7 @@ function addMarker(location, category, map, note) {
 */
 }
 
-function addToSection(section,content) {
+/*function addToSection(section,content) {
   var table = document.getElementById("myTable");
   var row = table.insertRow(0);
   var cell1 = row.insertCell(0);
@@ -188,8 +179,66 @@ function addToSection(section,content) {
    if(section=="Other"){
      id= "extra";
    }
-   addToSection(id, marker.data);
- }
+   addRow(id, marker.data);
+ }*/
+  function addRow(cat, eName, time, loc, eNote) {
+    if(cat == "1"){
+     id = "fun";
+   }
+   if(cat == "2"){
+     id= "stud";
+   }
+   if (cat == "3"){
+     id= "dinner";
+   }
+   if(cat == "4"){
+     id= "extra";
+   }
+  // Get the table by its id
+  var table = document.getElementById(id);
+
+   // Get the number of columns in the table
+   var numOfColumns = table.rows[0].cells.length;
+
+  // Create a new row
+  var row = table.insertRow(-1);
+
+  // Create cells for each column
+  for (var i = 0; i < numOfColumns; i++) {
+  var cell = row.insertCell(i);
+  
+  if (i === 0) {
+    var inputField = document.createElement(category);
+    inputField.type = "text";
+    inputField.value = "New Input Value";
+    cell.appendChild(inputField);
+    }
+    if (i === 1) {
+    var inputField = document.createElement(eName);
+    inputField.type = "text";
+    inputField.value = "New Input Value";
+    cell.appendChild(inputField);
+    } 
+    if (i === 2) {
+    var inputField = document.createElement(time);
+    inputField.type = "text";
+    inputField.value = "New Input Value";
+    cell.appendChild(inputField);
+    }
+    if (i === 3) {
+    var inputField = document.createElement(loc);
+    inputField.type = "text";
+    inputField.value = "New Input Value";
+    cell.appendChild(inputField);
+    }
+    else {
+     var inputField = document.createElement(eNote);
+    inputField.type = "text";
+    inputField.value = "New Input Value";
+    cell.appendChild(inputField);
+    }
+  }
+}
 
 }
 
