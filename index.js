@@ -1,59 +1,31 @@
 const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let labelIndex = 0;
 
-var numMarkers = 0;
-var markers = [];
+var numMarkers;
+var markers;
 
 window.addEventListener("load", function (evt) {
   //get number of markers
-  if (localStorage.getItem("numMarkers") == null) {
-    localStorage.setItem("numMarkers", 0);
+  if (!JSON.parse(localStorage.getItem("labelIndex"))) {
+    localStorage.setItem("labelIndex", JSON.stringify({number: Number(0)}));
   } else {
-    numMarkers = Number(JSON.parse(localStorage.getItem("numMarkers")));
+    numMarkers = Number(JSON.parse(localStorage.getItem("labelIndex")));
   }
 
   //get markers
-  if (localStorage.getItem("markers") == null) {
-    console.log("markers is empty");
-    //markers = [];
-    //localStorage.setItem("markers", JSON.stringify(markers));
-    var newMarker = new google.maps.Marker({
-    position: { lat: 40.4406, lng: -90.9959 },
-    map: map,
-  });
-    
-    console.log(newMarker);
-    
-    var stringified = JSON.stringify([newMarker]);
-    
-    console.log(stringified);
-    
-    localStorage.setItem("markers", stringified);
+  if (!JSON.parse(localStorage.getItem("markers"))) {
+    markers = [];
+    localStorage.setItem("markers", JSON.stringify(markers));
   } else {
-    console.log("markers is not empty");
-    console.log(localStorage.getItem("markers"));
-    localStorage.setItem("markers", JSON.stringify(new google.maps.Marker({
-    position:  { lat: 40.4406, lng: -90.9959 },
-    map: map,
-  })))
-    //markers = JSON.parse(localStorage.getItem("markers"));
- 
+    markers = JSON.parse(localStorage.getItem("labelIndex"));
   }
-  
-  console.log("numMarkers: " + numMarkers);
-  console.log("markers.length: " + markers.length);
-  console.log(markers);
-  console.log(JSON.stringify([1,2,3]));
 
 
 });
 
 window.addEventListener('beforeunload', function (evt) {
-  localStorage.setItem("numMarkers", numMarkers);
-  //localStorage.setItem("markers", JSON.stringify(new google.maps.Marker({
-    //position: pittsburgh,
-    //map: map,
-  //})));
+  localStorage.setItem("labelIndex", numMarkers);
+  localStorage.setItem("markers", JSON.stringify(markers));
 });
 
 
@@ -65,7 +37,7 @@ function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     // Create the DIV to hold the control and call the makeInfoBox() constructor
     // passing in this DIV.
-    zoom: 100,
+    zoom: 4,
     center: pittsburgh,
     disableDoubleClickZoom: true,
   });
@@ -82,34 +54,25 @@ function initMap() {
     map: map,
   });
   
-  if (markers.length > 0){
-    console.log(markers.length);
-    markers.forEach(mark => addMarker(mark.position,mark.label,map,mark.title));
-  }
+  markers.forEach(mark => addMarker(mark.position,mark.label,map,mark.title));
     
 // This event listener calls addMarker() when the map is clicked and prompts user to add note.
   google.maps.event.addListener(map, 'dblclick', function(event) {
-    console.log("dblclick detected");
-    var category = prompt("Please enter the corresponding category number (1: Entertainment  2: Educational  3: Food  4: Other):");
-    var eventName = prompt("Please enter the name of your event:");
-    var time = prompt("Please enter the date and time of your event:")
-    var place = prompt("Please enter the location of your event: ")
-    var eventNote = prompt("Enter a description of your event:")
-    var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nDate: " + time + "\nPlace: " + place + "\nDescription: " + eventNote;
-    var newMarker = addMarker(event.latLng, category, map, labelContent);
-    numMarkers++;
-    console.log(numMarkers);
-    console.log(markers);
-    var tableInf = {Category: category, Event: eventName, Date: time, Where: place, About: eventNote};
-    tableobjects.push(tableInf);
-    addToRow(category, eventName, time, place, eventNote);
+    console.log("double click detected");
+    var category = prompt("Please enter the category of your event (event\education\food\other):");
+    var eventName = prompt("Please add the name of your event:");
+    var timeAndPlace = prompt("Please add the time and location of your event:")
+    var eventNote = prompt("Add a description of your event:")
+    var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nTime and Place: " + timeAndPlace + "\nDescription: " + eventNote;
+    addMarker(event.latLng, category, map, labelContent);
+    //addToTable(labelContent);
   });
-  
-  //add marker
+
+  // Adds a marker to the map.
 function addMarker(location, category, map, note) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
-  var marker = new google.maps.Marker({
+  const marker = new google.maps.Marker({
     position: location,
     label: category,
     map: map,
@@ -117,33 +80,8 @@ function addMarker(location, category, map, note) {
     optimized: false,
   });
   
-  //delete marker on click:
-  google.maps.event.addListener(marker, 'click', function() {
-  marker.setMap(null);
-  numMarkers--;
-});
   markers.push(marker);
-  console.log("markers.length: " + markers.length);
-  console.log("numMarkers: " + ++numMarkers);
-   
-  return marker;
-  
-//   function setMapOnAll(map) {
-//   for (let i = 0; i < markers.length; i++) {
-//     markers[i].setMap(map);
-//   }
-// }
-
-// // Deletes all markers in the array by removing references to them.
-// function deleteMarkers() {
-//   setMapOnAll(null);
-//   markers = [];
-// }
-  
-//    document
-//     .getElementById("delete-markers")
-//     .addEventListener("click", deleteMarkers());
-  
+  numMarkers++;
 
 /*
    marker.addListener('click', function() {
@@ -158,55 +96,11 @@ function addMarker(location, category, map, note) {
 */
 }
 
-/*function addToSection(section,content) {
+function addToTable(content) {
   var table = document.getElementById("myTable");
   var row = table.insertRow(0);
   var cell1 = row.insertCell(0);
   cell1.innerHTML = content;
-}
-  
-  function addToTable(section, id){
-   if(section== "Entertainment"){
-     id = "fun";
-   }
-   if(section=="Educational"){
-     id= "stud";
-   }
-   if (section=="Food"){
-     id= "dinner";
-   }
-   if(section=="Other"){
-     id= "extra";
-   }
-   addRow(id, marker.data);
- }*/
-  
-  
-  function addToRow(category, eventName, time, place, eventNote) {
-   if(cat == "1"){
-     id = "fun";
-   }
-   if(cat == "2"){
-     id= "stud";
-   }
-   if (cat == "3"){
-     id= "dinner";
-   }
-   if(cat == "4"){
-     id= "extra";
-   }
-  var table = document.getElementById(id);
-  var row = table.insertRow(-1);
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  var cell4 = row.insertCell(3);
-  var cell5 = row.insertCell(4);
-  cell1.innerHTML = category;
-  cell2.innerHTML = eventName;
-  cell3.innerHTML = time;
-  cell4.innerHTML = place;
-  cell5.innerHTML = eventNote;
 }
   
 
@@ -235,37 +129,4 @@ function makeInfoBox(controlDiv, map) {
   controlText.style.padding = '6px';
   controlText.innerText = 'The map shows all clicks made in the last 10 minutes.';
   controlUI.appendChild(controlText);
-}
-{
-
-
-
-function generateTableHead(table, data) {
-  let thead = table.createTHead();
-  let row = thead.insertRow();
-  for (let key of data) {
-    let th = document.createElement("th");
-    let text = document.createTextNode(key);
-    th.appendChild(text);
-    row.appendChild(th);
-  }
-}
-
-function generateTable(table, data) {
-  for (let element of data) {
-    let row = table.insertRow();
-    for (key in element) {
-      let cell = row.insertCell();
-      let text = document.createTextNode(element[key]);
-      cell.appendChild(text);
-    }
-  }
-}
-
-let table = document.querySelector("table");
-let data = Object.keys(tableobjects[0]);
-generateTableHead(table, data);
-generateTable(table, tableobjects);
-
-
 }
