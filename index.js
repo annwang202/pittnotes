@@ -97,6 +97,7 @@ function addMarker(location, category, map, note) {
   //delete marker on click:
   google.maps.event.addListener(marker, 'click', function() {
   marker.setMap(null);
+  numMarkers--;
 });
   markers.push(marker);
   console.log("markers.length: " + markers.length);
