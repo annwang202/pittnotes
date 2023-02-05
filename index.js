@@ -79,6 +79,7 @@ function initMap() {
     console.log(numMarkers);
     console.log(markers);
     var tableInf = {Category: category, Event: eventName, Date: time, Where: place, About: eventNote};
+    tableobjects.push(tableInf);
     addToSection(category,labelContent);
     //addToTable(labelContent);
   });
