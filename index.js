@@ -73,9 +73,7 @@ function initMap() {
     var eventNote = prompt("Enter a description of your event:")
     var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nDate: " + time + "\nPlace: " + place + "\nDescription: " + eventNote;
     var newMarker = addMarker(event.latLng, category, map, labelContent);
-    markers.push(newMarker);
     numMarkers++;
-    console.log(newMarker);
     console.log(numMarkers);
     console.log(markers);
     var tableInf = {Category: category, Event: eventName, Date: time, Where: place, About: eventNote};
@@ -100,6 +98,7 @@ function addMarker(location, category, map, note) {
   google.maps.event.addListener(marker, 'click', function() {
   marker.setMap(null);
 });
+  markers.push(marker);
   console.log("markers.length: " + markers.length);
    
   return marker;
