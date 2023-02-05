@@ -20,6 +20,9 @@ window.addEventListener("load", function (evt) {
   } else {
     markers = JSON.parse(localStorage.getItem("markers"));
   }
+  
+  console.log(numMarkers);
+  console.log(markers);
 
 
 });
