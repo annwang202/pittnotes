@@ -95,35 +95,30 @@ function addMarker(location, category, map, note) {
     title: note,
     optimized: false,
   });
+  
+  //delete marker on click:
+  google.maps.event.addListener(marker, 'click', function() {
+  marker.setMap(null);
+});
    
   return marker;
   
-  function setMapOnAll(map) {
-  for (let i = 0; i < markers.length; i++) {
-    markers[i].setMap(map);
-  }
-}
-
-// Deletes all markers in the array by removing references to them.
-function deleteMarkers() {
-  setMapOnAll(null);
-  markers = [];
-}
-  
-   document
-    .getElementById("delete-markers")
-    .addEventListener("click", deleteMarkers());
-  
-  
-//   function setMapArr(map) {
+//   function setMapOnAll(map) {
 //   for (let i = 0; i < markers.length; i++) {
 //     markers[i].setMap(map);
 //   }
 // }
-//   function deleteMarkers() {
-//   setMapArr(null);
+
+// // Deletes all markers in the array by removing references to them.
+// function deleteMarkers() {
+//   setMapOnAll(null);
 //   markers = [];
 // }
+  
+//    document
+//     .getElementById("delete-markers")
+//     .addEventListener("click", deleteMarkers());
+  
 
 /*
    marker.addListener('click', function() {
