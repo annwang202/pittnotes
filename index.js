@@ -24,7 +24,7 @@ window.addEventListener("load", function (evt) {
     
     console.log(newMarker);
     
-    var stringified = JSON.stringify(newMarker);
+    var stringified = JSON.stringify([newMarker]);
     
     console.log(stringified);
     
