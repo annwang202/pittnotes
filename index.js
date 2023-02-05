@@ -46,10 +46,6 @@ function initMap() {
     disableDoubleClickZoom: true,
   });
   
-  document
-    .getElementById("delete-markers")
-    .addEventListener("click", deleteMarkers());
-  
   //info box at top
   var infoBoxDiv = document.createElement('div');
   var infoBox = new makeInfoBox(infoBoxDiv, map);
@@ -113,6 +109,11 @@ function deleteMarkers() {
   markers = [];
 }
   
+   document
+    .getElementById("delete-markers")
+    .addEventListener("click", deleteMarkers());
+  
+  
 //   function setMapArr(map) {
 //   for (let i = 0; i < markers.length; i++) {
 //     markers[i].setMap(map);
@@ -138,12 +139,7 @@ function deleteMarkers() {
 }
 
 function addToSection(section,content) {
-  var sectionName = section.toLowerCase();
-  var tableId;
-  if (sectionName == "entertainment" || sectionName == "education" || sectionName == "food" || sectionName == "other") tableId = sectionName;
-  else (tableId = "other");
-
-  var table = document.getElementById(tableId);
+  var table = document.getElementById("myTable");
   var row = table.insertRow(0);
   var cell1 = row.insertCell(0);
   cell1.innerHTML = content;
