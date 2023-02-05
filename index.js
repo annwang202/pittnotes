@@ -1,6 +1,7 @@
 const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let labelIndex = 0;
 
+
 var numMarkers = 0;
 var markers = [];
 
