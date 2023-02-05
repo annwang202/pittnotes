@@ -95,44 +95,24 @@ function initMap() {
     var time = prompt("Please enter the date and time of your event:")
     var place = prompt("Please enter the location of your event: ")
     var eventNote = prompt("Enter a description of your event:")
+    if (category == "1")
+     category = "Entertainment";
+    if (category == "2")
+     category = "Educational";
+    if (category == "3")
+     category = "Food";
+    if (category == "4")
+     category = "Other";
     var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nDate: " + time + "\nPlace: " + place + "\nDescription: " + eventNote;
     var newMarker = addMarker(event.latLng, category, map, labelContent);
     numMarkers++;
     console.log(numMarkers);
     console.log(markers);
     var tableInf = {Category: category, Event: eventName, Date: time, Where: place, About: eventNote};
-    let object = tableInf;
-    torighttable(object);
-    //tableobjects.push(tableInf);
-    addToRow(category, eventName, time, place, eventNote);
+    tableobjects.push(tableInf);
+    addToSection(category,labelContent);
+    addToTable(labelContent);
   });
-let entertainment = new Array(); 
-let education = new Array(); 
-let food = new Array(); 
-let other = new Array(); 
-  
-  function torighttable(object) {
-    if (Category == "1") {
-        entertainment.push(tableInf)
-    }
-    if (Category == "2") {
-        education.push(tableInf)
-    }
-    if (Category == "3") {
-         food.push(tableInf)
-    }
-    if (Category == "4") {
-         other.push(tableInf)
-    }
-let table = document.getElementbyId ("fun");
-let table = "<table><tr><th>Category</th><th>Name</th><th>Date</th><th>Time</th><th>Place</th><th>EventNote</th></tr>";
-for (let i = 0; i < entertainment.length; i++) {
-  table += "<tr><td>" + entertainment[i].Category + "</td><td>" + entertainment[i].Event + "</td><td>" + entertainment[i].Date+ "</td><td>" + entertainment[i].Where+ "</td><td>" + entertainment[i].About + "</td></tr>";
-}
-table += "</table>";
-
-document.write(table);
-
   
   //add marker
 function addMarker(location, category, map, note) {
@@ -188,57 +168,29 @@ function addMarker(location, category, map, note) {
 */
 }
 
-/*function addToSection(section,content) {
-  var table = document.getElementById("myTable");
+function addToSection(section,content) {
+  var table = document.getElementById(section);
   var row = table.insertRow(0);
   var cell1 = row.insertCell(0);
   cell1.innerHTML = content;
 }
   
-  function addToTable(section, id){
-   if(section== "Entertainment"){
+  function addToTable(section){
+    var id;
+   if(section.charAt(0)== "1"){
      id = "fun";
    }
-   if(section=="Educational"){
+   if(section.charAt(0)== "2"){
      id= "stud";
    }
-   if (section=="Food"){
+   if (section.charAt(0)=="3"){
      id= "dinner";
    }
-   if(section=="Other"){
+   if(section.charAt(0)=="4"){
      id= "extra";
    }
-   addRow(id, marker.data);
- }*/
-  
-  
-  function addToRow(category, eventName, time, place, eventNote) {
-   if(cat == "1"){
-     id = "fun";
-   }
-   if(cat == "2"){
-     id= "stud";
-   }
-   if (cat == "3"){
-     id= "dinner";
-   }
-   if(cat == "4"){
-     id= "extra";
-   }
-  var table = document.getElementById(id);
-  var row = table.insertRow(-1);
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  var cell4 = row.insertCell(3);
-  var cell5 = row.insertCell(4);
-  cell1.innerHTML = category;
-  cell2.innerHTML = eventName;
-  cell3.innerHTML = time;
-  cell4.innerHTML = place;
-  cell5.innerHTML = eventNote;
-}
-  
+   addToSection(id, section);
+ }
 
 }
 
