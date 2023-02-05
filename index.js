@@ -195,7 +195,7 @@ function addToSection(section,content) {
    addToSection(id, marker.data);
  }
 
-//}
+}
 
 window.initMap = initMap;
 
