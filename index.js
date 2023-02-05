@@ -101,9 +101,38 @@ function initMap() {
     console.log(numMarkers);
     console.log(markers);
     var tableInf = {Category: category, Event: eventName, Date: time, Where: place, About: eventNote};
-    tableobjects.push(tableInf);
+    let object = tableInf;
+    torighttable(object);
+    //tableobjects.push(tableInf);
     addToRow(category, eventName, time, place, eventNote);
   });
+let entertainment = new Array(); 
+let education = new Array(); 
+let food = new Array(); 
+let other = new Array(); 
+  
+  function torighttable(object) {
+    if (Category == "1") {
+        entertainment.push(tableInf)
+    }
+    if (Category == "2") {
+        education.push(tableInf)
+    }
+    if (Category == "3") {
+         food.push(tableInf)
+    }
+    if (Category == "4") {
+         other.push(tableInf)
+    }
+let table = document.getElementbyId ("fun");
+let table = "<table><tr><th>Category</th><th>Name</th><th>Date</th><th>Time</th><th>Place</th><th>EventNote</th></tr>";
+for (let i = 0; i < entertainment.length; i++) {
+  table += "<tr><td>" + entertainment[i].Category + "</td><td>" + entertainment[i].Event + "</td><td>" + entertainment[i].Date+ "</td><td>" + entertainment[i].Where+ "</td><td>" + entertainment[i].About + "</td></tr>";
+}
+table += "</table>";
+
+document.write(table);
+
   
   //add marker
 function addMarker(location, category, map, note) {
