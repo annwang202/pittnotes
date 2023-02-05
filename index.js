@@ -138,7 +138,12 @@ function deleteMarkers() {
 }
 
 function addToSection(section,content) {
-  var table = document.getElementById("myTable");
+  var sectionName = section.toLowerCase();
+  var tableId;
+  if (sectionName == "entertainment" || sectionName == "education" || sectionName == "food" || sectionName == "other") tableId = sectionName;
+  else (tableId = "other");
+
+  var table = document.getElementById(tableId);
   var row = table.insertRow(0);
   var cell1 = row.insertCell(0);
   cell1.innerHTML = content;
