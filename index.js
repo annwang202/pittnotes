@@ -1,4 +1,4 @@
-const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+ const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let labelIndex = 0;
 
 var numMarkers = 0;
@@ -24,7 +24,7 @@ window.addEventListener("load", function (evt) {
     
     console.log(newMarker);
     
-    var stringified = JSON.stringify([newMarker]);
+    var stringified = JSON.stringify(newMarker);
     
     console.log(stringified);
     
@@ -90,11 +90,19 @@ function initMap() {
 // This event listener calls addMarker() when the map is clicked and prompts user to add note.
   google.maps.event.addListener(map, 'dblclick', function(event) {
     console.log("dblclick detected");
-    var category = prompt("Please enter the category of your event (entertainment/education/food/other):");
+    var category = prompt("Please enter the corresponding category number (1: Entertainment  2: Educational  3: Food  4: Other):");
     var eventName = prompt("Please enter the name of your event:");
     var time = prompt("Please enter the date and time of your event:")
     var place = prompt("Please enter the location of your event: ")
     var eventNote = prompt("Enter a description of your event:")
+    if (category == "1")
+     category = "Entertainment";
+    if (category == "2")
+     category = "Educational";
+    if (category == "3")
+     category = "Food";
+    if (category == "4")
+     category = "Other";
     var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nDate: " + time + "\nPlace: " + place + "\nDescription: " + eventNote;
     var newMarker = addMarker(event.latLng, category, map, labelContent);
     numMarkers++;
@@ -161,14 +169,33 @@ function addMarker(location, category, map, note) {
 }
 
 function addToSection(section,content) {
-  var table = document.getElementById("myTable");
+  var table = document.getElementById(section);
   var row = table.insertRow(0);
   var cell1 = row.insertCell(0);
   cell1.innerHTML = content;
 }
   
+//add to table
+  // if section==food, then set id to food
+  //use id to replace mytable
 
-}
+ function addToTable(section, id){
+   if(section== "Entertainment"){
+     id = "fun";
+   }
+   if(section=="Educational"){
+     id= "stud";
+   }
+   if (section=="Food"){
+     id= "dinner";
+   }
+   if(section=="Other"){
+     id= "extra";
+   }
+   addToSection(id, marker.data);
+ }
+
+//}
 
 window.initMap = initMap;
 
