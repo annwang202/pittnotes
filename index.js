@@ -17,10 +17,14 @@ window.addEventListener("load", function (evt) {
     console.log("markers is empty");
     //markers = [];
     //localStorage.setItem("markers", JSON.stringify(markers));
-    localStorage.setItem("markers", JSON.stringify(new google.maps.Marker({
+    var newMarker = new google.maps.Marker({
     position: pittsburgh,
     map: map,
-  })))
+  });
+    
+    var stringified = JSON.stringify(newMarker);
+    
+    localStorage.setItem("markers", stringified);
   } else {
     console.log("markers is not empty");
     console.log(localStorage.getItem("markers"));
