@@ -13,7 +13,7 @@ window.addEventListener("load", function (evt) {
   }
 
   //get markers
-  if (!JSON.parse(localStorage.getItem("markers"))) {
+  if (localStorage.getItem("markers") == null) {
     markers = [];
     localStorage.setItem("markers", JSON.stringify(markers));
   } else {
@@ -101,6 +101,7 @@ function addMarker(location, category, map, note) {
 });
   markers.push(marker);
   console.log("markers.length: " + markers.length);
+  console.log("numMarkers: " + ++numMarkers);
    
   return marker;
   
