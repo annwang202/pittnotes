@@ -100,7 +100,7 @@ function addMarker(location, category, map, note) {
   google.maps.event.addListener(marker, 'click', function() {
   marker.setMap(null);
 });
-  console.log(markers);
+  console.log("markers.length: " + markers.length);
    
   return marker;
   
