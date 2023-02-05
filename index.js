@@ -1,13 +1,14 @@
 const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let labelIndex = 0;
 
-var numMarkers;
-var markers;
+var numMarkers = 0;
+var markers = [];
 
 window.addEventListener("load", function (evt) {
   //get number of markers
-  if (!JSON.parse(localStorage.getItem("labelIndex"))) {
-    localStorage.setItem("labelIndex", JSON.stringify({number: Number(0)}));
+  if (localStorage.getItem("labelIndex") == null) {
+    numMarkers = 0;
+    localStorage.setItem("labelIndex", numMarkers);
   } else {
     numMarkers = Number(JSON.parse(localStorage.getItem("labelIndex")));
   }
@@ -17,7 +18,7 @@ window.addEventListener("load", function (evt) {
     markers = [];
     localStorage.setItem("markers", JSON.stringify(markers));
   } else {
-    markers = JSON.parse(localStorage.getItem("labelIndex"));
+    markers = JSON.parse(localStorage.getItem("markers"));
   }
 
 
@@ -37,7 +38,7 @@ function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     // Create the DIV to hold the control and call the makeInfoBox() constructor
     // passing in this DIV.
-    zoom: 4,
+    zoom: 50,
     center: pittsburgh,
     disableDoubleClickZoom: true,
   });
@@ -54,21 +55,29 @@ function initMap() {
     map: map,
   });
   
-  markers.forEach(mark => addMarker(mark.position,mark.label,map,mark.title));
+  if (markers.length > 0){
+    console.log(markers.length);
+    markers.forEach(mark => addMarker(mark.position,mark.label,map,mark.title));
+  }
     
 // This event listener calls addMarker() when the map is clicked and prompts user to add note.
-  google.maps.event.addListener(map, 'dblclick', function(event) {
-    console.log("double click detected");
-    var category = prompt("Please enter the category of your event (event\education\food\other):");
-    var eventName = prompt("Please add the name of your event:");
-    var timeAndPlace = prompt("Please add the time and location of your event:")
-    var eventNote = prompt("Add a description of your event:")
-    var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nTime and Place: " + timeAndPlace + "\nDescription: " + eventNote;
+  google.maps.event.addListener(map, 'click', function(event) {
+    console.log("click detected");
+    var category = prompt("Please enter the category of your event (entertainment/education/food/other):");
+    var eventName = prompt("Please enter the name of your event:");
+    var time = prompt("Please enter the date and time of your event:")
+    var place = prompt("Please enter the location of your event: ")
+    var eventNote = prompt("Enter a description of your event:")
+    var labelContent = "Category: " + category + "\nTitle: " + eventName + "\nDate: " + time + "\nPlace: " + place + "\nDescription: " + eventNote;
     addMarker(event.latLng, category, map, labelContent);
+    var tableInf = {Category: category, Event: eventName, Date: time, Where: place, About: eventNote};
+    addToSection(category,labelContent);
     //addToTable(labelContent);
   });
-
-  // Adds a marker to the map.
+  //delete marker
+  marker.addListener("dblclick", () => {
+    marker.setMap(null);
+});
 function addMarker(location, category, map, note) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
@@ -82,12 +91,23 @@ function addMarker(location, category, map, note) {
   
   markers.push(marker);
   numMarkers++;
+  
+//   function setMapArr(map) {
+//   for (let i = 0; i < markers.length; i++) {
+//     markers[i].setMap(map);
+//   }
+// }
+//   function deleteMarkers() {
+//   setMapArr(null);
+//   markers = [];
+// }
 
 /*
    marker.addListener('click', function() {
        infowindow.open(marker.get('map'), marker);
    });
   }
+
   marker.addListener("click", () => {
     infoWindow.close();
     infoWindow.setContent(marker.getTitle());
@@ -96,7 +116,7 @@ function addMarker(location, category, map, note) {
 */
 }
 
-function addToTable(content) {
+function addToSection(section,content) {
   var table = document.getElementById("myTable");
   var row = table.insertRow(0);
   var cell1 = row.insertCell(0);
