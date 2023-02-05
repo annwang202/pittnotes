@@ -5,6 +5,7 @@ Panther Prowls is an online community forum, primarily targeting the students of
 
 A simple two clicks allows users to input information about ongoing events or areas of concern around the city of Pittsburgh. With you help, we hope to provide all the activites and city-wide information around the Pittsburgh area. Cheers!
 
+
 Contact us for any bugs, issues, questions, or comments:
 
 -Annie Wang: anw152@pitt.edu
