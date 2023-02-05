@@ -37,7 +37,7 @@ window.addEventListener('beforeunload', function (evt) {
   localStorage.setItem("markers", JSON.stringify(new google.maps.Marker({
     position: pittsburgh,
     map: map,
-  }));
+  })));
 });
 
 
