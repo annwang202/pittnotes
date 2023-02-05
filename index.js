@@ -1,7 +1,6 @@
 const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let labelIndex = 0;
 
-
 var numMarkers = 0;
 var markers = [];
 
@@ -65,8 +64,8 @@ function initMap() {
   }
     
 // This event listener calls addMarker() when the map is clicked and prompts user to add note.
-  google.maps.event.addListener(map, 'click', function(event) {
-    console.log("click detected");
+  google.maps.event.addListener(map, 'dblclick', function(event) {
+    console.log("dblclick detected");
     var category = prompt("Please enter the category of your event (entertainment/education/food/other):");
     var eventName = prompt("Please enter the name of your event:");
     var time = prompt("Please enter the date and time of your event:")
