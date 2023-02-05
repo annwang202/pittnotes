@@ -22,7 +22,11 @@ window.addEventListener("load", function (evt) {
     map: map,
   });
     
+    console.log(newMarker);
+    
     var stringified = JSON.stringify(newMarker);
+    
+    console.log(stringified);
     
     localStorage.setItem("markers", stringified);
   } else {
