@@ -46,10 +46,10 @@ window.addEventListener("load", function (evt) {
 
 window.addEventListener('beforeunload', function (evt) {
   localStorage.setItem("numMarkers", numMarkers);
-  localStorage.setItem("markers", JSON.stringify(new google.maps.Marker({
-    position: pittsburgh,
-    map: map,
-  })));
+  //localStorage.setItem("markers", JSON.stringify(new google.maps.Marker({
+    //position: pittsburgh,
+    //map: map,
+  //})));
 });
 
 
