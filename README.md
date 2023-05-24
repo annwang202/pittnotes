@@ -1,5 +1,7 @@
-# Panther Prowls
+# Panther Prowls 
 Annie Wang, Vibha Hodachalli, Jaclyn Kim, & Lula Campbell
+
+This project is not yet complete.
 
 Panther Prowls is an online community forum, primarily targeting the students of University of Pittsburgh, but open to all. With this online platform, we are hoping to create a community that shares exciting and insightful information through the ease of two clicks/taps. From entertainment to road and infrastructure concerns, Panther Prowls allows users to share and see all the hot, trending places or where all the issue areas to avoid are located.
 
